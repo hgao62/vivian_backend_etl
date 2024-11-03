@@ -179,7 +179,7 @@ https://www.youtube.com/watch?v=cHYq1MRoyI0&t=716s
 
 
 
-### Task 5 CI pipeline configuration
+### Task 6 CI pipeline configuration
 
 Configuration file is located in .github\workflows\pylint.yml folder. please add mypy check and unit testing to github workflow so that 
 it will run mypy check and unit testing every time we push code to our repo(hint:you can use chatgpt here)
