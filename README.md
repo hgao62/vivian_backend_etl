@@ -6,7 +6,7 @@ Backend ETL pipeline to process stock data from yahoo finance api
 
 ### Task 1
 * 1. create main.py, extract_data.py, load_data.py
-* 2. create requirments.txt file that has contents below
+* 2. create requirements.txt file that has contents below
 ```
 SQLAlchemy==1.4.52
 yfinance==0.2.37
