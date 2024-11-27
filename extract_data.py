@@ -69,7 +69,7 @@ def get_stock_financials(stock:str) -> pd.DataFrame:
 
 ### Task 2
 # 1. add a function called get_exchange_rate to extract_data.py so it can download fx rate for us
-def get_exchange_rate(from_currency:str, to_currency:str, interval:str) -> pd.DataFrame:
+def get_exchange_rate(from_currency:str, to_currency:str, interval:str,period: str) -> pd.DataFrame:
     """
     Downloads historical foreign exchange rate data for a given currency pair.
 
@@ -89,7 +89,7 @@ def get_exchange_rate(from_currency:str, to_currency:str, interval:str) -> pd.Da
                       close prices.
     """
     fx_rate_ticker = f"{from_currency}{to_currency}=X"
-    fx_rates = yf.download(fx_rate_ticker, period="ytd", interval=interval)
+    fx_rates = yf.download(tickers = fx_rate_ticker, period = period, interval=interval)
     fx_rates = fx_rates.reset_index()
     fx_rates["From Currency"] = from_currency
     fx_rates["To Currency"] = to_currency
@@ -99,7 +99,7 @@ def get_exchange_rate(from_currency:str, to_currency:str, interval:str) -> pd.Da
     
 
 # 2. add a function called get_stock_currency_code so that we know what currency this stock belongs to
-def get_stock_currency_code(stock:str):
+def get_stock_currency_code(stock:str) -> str:
     """
     Retrieves the trading currency of a specific stock symbol.
 
@@ -116,11 +116,11 @@ def get_stock_currency_code(stock:str):
     """
     stock_info = yf.Ticker(stock)
     stock_currency = stock_info.fast_info.get("currency")
-    print(f"The trading currency of {stock_info} is: {stock_currency}")
+    return stock_currency
 
 
 #3. add function called get_news to extract_data.py so we can get relevant news belongs to that company
-def get_news(stock:str):
+def get_news(stock:str) -> pd.DataFrame:
     """
     Retrieves the latest news articles related to a specific stock symbol.
 
@@ -142,7 +142,7 @@ def get_news(stock:str):
     stock_df["Stock"] =stock
     stock_df.columns = stock_df.columns.str.capitalize()
     stock_df = stock_df[["Stock","Uuid","Title", "Publisher", "Link", "Providerpublishtime", "Type"]]
-    print(stock_df)
+    return stock_df
 
 
 # 4.Add a new python file called transform_data.py and it should round open, high, low, close columns to 2 decimal places and rename date column to trade_date
@@ -166,7 +166,10 @@ def normalize_stock_data(stock: str) -> pd.DataFrame:
     stock_history_df[columns_to_round] = stock_history_df[columns_to_round].round(2)
     # Rename the "Date" column to "Trade_Date"
     stock_history_df.rename(columns={"Date": "Trade_Date"}, inplace=True)
-    print(stock_history_df)
+    return stock_history_df
 
 
 
+if __name__ == "__main__":
+    print(get_exchange_rate("USD","JPY","1d","1d"))
+    print(get_stock_currency_code("MSFT"))
