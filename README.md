@@ -150,11 +150,8 @@ def add_stock_returns(stock_history:pd.DataFrame):
 <img alt="stock financial" src="./docs/usd_close.png" width="1000">
 
 
-
-
-
 ### Task 4 
-1. create load_data.py file and create function inside like below that save dataframe to sqlite db
+1. create load_data.py file and create function inside like below that save dataframe to mysql database
      
 ```python
  def save_df_to_db(
@@ -166,7 +163,7 @@ def add_stock_returns(stock_history:pd.DataFrame):
     Args:
         df: DataFrame to be sent to the SQL database.
         table_name: Name of the table in the SQL database.
-        engine: db engine type, in our project, this could be sqlite or mysql
+        engine: db engine type, in our project, this could be mysql
         if_exists: Action to take if the table already exists in the SQL database.
                    Options: "fail", "replace", "append" (default: "append").
         dtype: Dictionary of column names and data types to be used when creating the table (default: None).
@@ -176,15 +173,18 @@ def add_stock_returns(stock_history:pd.DataFrame):
         None. This function logs a note in the log file to confirm that data has been sent to the SQL database.
     """
 ```
-3. set up mysql engine and call your project below and you should see data loaded into mysql database
-   similar to how you set sqlite db. just change the connection string
+2. set up mysql engine and call your project below and you should see data loaded into mysql database
+   similar to how you set mysql db. just change the connection string
 ```python
     tickers = ["AAPL"]
     period = "5d"
     main(tickers, period=period, db_type="mysql")
 ```
 see video below to setup mysql
+Link 1:
 https://www.youtube.com/watch?v=u96rVINbAUI
+Link 2:
+https://planetscale.com/blog/using-mysql-with-sql-alchemy-hands-on-examples
 
 for mac user, you need to run brew install mysql pkg-config
 https://stackoverflow.com/questions/66669728/trouble-installing-mysql-client-on-mac

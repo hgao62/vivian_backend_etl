@@ -11,6 +11,7 @@ import pandas as pd
 3. Select certain columns from the dataframe
 '''
 
+
 def get_stock_history(stock:str) -> pd.DataFrame:
     """Download stock history for a given ticker
 
@@ -169,7 +170,8 @@ def normalize_stock_data(stock: str) -> pd.DataFrame:
     return stock_history_df
 
 
-
 if __name__ == "__main__":
     print(get_exchange_rate("USD","JPY","1d","1d"))
     print(get_stock_currency_code("MSFT"))
+  
+
