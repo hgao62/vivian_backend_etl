@@ -163,7 +163,7 @@ def add_stock_returns(stock_history:pd.DataFrame):
     Args:
         df: DataFrame to be sent to the SQL database.
         table_name: Name of the table in the SQL database.
-        engine: db engine type, in our project, this could be sqlite or mysql
+        engine: db engine type, in our project, this could be mysql
         if_exists: Action to take if the table already exists in the SQL database.
                    Options: "fail", "replace", "append" (default: "append").
         dtype: Dictionary of column names and data types to be used when creating the table (default: None).
@@ -174,7 +174,7 @@ def add_stock_returns(stock_history:pd.DataFrame):
     """
 ```
 2. set up mysql engine and call your project below and you should see data loaded into mysql database
-   similar to how you set sqlite db. just change the connection string
+   similar to how you set mysql db. just change the connection string
 ```python
     tickers = ["AAPL"]
     period = "5d"

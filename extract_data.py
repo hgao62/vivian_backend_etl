@@ -169,7 +169,8 @@ def normalize_stock_data(stock: str) -> pd.DataFrame:
     return stock_history_df
 
 
-
 if __name__ == "__main__":
     print(get_exchange_rate("USD","JPY","1d","1d"))
     print(get_stock_currency_code("MSFT"))
+  
+
