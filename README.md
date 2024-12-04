@@ -181,7 +181,9 @@ def add_stock_returns(stock_history:pd.DataFrame):
     main(tickers, period=period, db_type="mysql")
 ```
 see video below to setup mysql
+Link 1:
 https://www.youtube.com/watch?v=u96rVINbAUI
+Link 2:
 https://planetscale.com/blog/using-mysql-with-sql-alchemy-hands-on-examples
 
 for mac user, you need to run brew install mysql pkg-config

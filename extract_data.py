@@ -11,6 +11,7 @@ import pandas as pd
 3. Select certain columns from the dataframe
 '''
 
+
 def get_stock_history(stock:str) -> pd.DataFrame:
     """Download stock history for a given ticker
 
